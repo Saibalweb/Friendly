@@ -3,12 +3,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import IconsM from "react-native-vector-icons/MaterialCommunityIcons";
 import profileImg from "../../assets/profile.png";
 import Story from "./Story";
+import Post from "./Post";
 
 
 const Home = () => {
     return (
         <SafeAreaView>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.header}>
                     <Text style={styles.headerText}>facebook</Text>
                     <View style={{ flexDirection: "row" }}>
@@ -43,8 +44,9 @@ const Home = () => {
                     </View>
                 </View>
                 <View style={{ height: 10, backgroundColor: "#c1c3c7" }} />
-                <Story />
+                {/* <Story /> */}
                 <View style={{ height: 10, backgroundColor: "#c1c3c7" }} />
+                <Post/>
             </ScrollView>
         </SafeAreaView>
     )
