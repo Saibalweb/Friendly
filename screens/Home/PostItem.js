@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { View,Text,StyleSheet,Image,TouchableOpacity, Pressable } from "react-native";
+import Video  from "react-native-video";
 import profileImg from "../../assets/profile.png";
 import PostImg from "../../assets/Post.jpg";
 import IconsI from "react-native-vector-icons/Ionicons";
@@ -49,6 +50,7 @@ const PostItem =()=>{
                     </TouchableOpacity>
                     <TouchableOpacity>
                     <Image source={PostImg} style={{flex:1,width:"100%",height:250}}/>
+                    {/* <Video style={{flex:1,width:"100%",height:250}} source={{URL:"https://youtu.be/FaSW_O6NLjM?si=OmEV5_QPJbhFDTdT"}}/> */}
                     </TouchableOpacity>
                 </View>
                 <View style={{paddingHorizontal:7}}>
