@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { View,Text,StyleSheet,Image,TouchableOpacity, Pressable } from "react-native";
-import Video  from "react-native-video";
 import profileImg from "../../assets/profile.png";
 import PostImg from "../../assets/Post.jpg";
 import IconsI from "react-native-vector-icons/Ionicons";
