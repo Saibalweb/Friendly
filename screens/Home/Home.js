@@ -44,7 +44,7 @@ const Home = () => {
                     </View>
                 </View>
                 <View style={{ height: 10, backgroundColor: "#c1c3c7" }} />
-                {/* <Story /> */}
+                <Story />
                 <View style={{ height: 10, backgroundColor: "#c1c3c7" }} />
                 <Post/>
             </ScrollView>
