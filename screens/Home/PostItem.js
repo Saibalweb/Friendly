@@ -62,20 +62,20 @@ const PostItem =()=>{
                     <View style={{paddingVertical:5,flexDirection:"row", justifyContent:"space-around"}}>
                         <View >
                             <TouchableOpacity style={styles.reactionContainer} onPress={addLikeHandler}>
-                            <IconsAnt name={isLike?"like1":"like2"} size={20} style={isLike?{marginRight:5,color:"blue"}:{marginRight:5}}/>
-                            <Text>Like</Text>
+                            <IconsAnt name={isLike?"like1":"like2"} size={20} style={isLike?{marginRight:5,color:"blue"}:{marginRight:5,color:"black"}}/>
+                            <Text style={{color:"black"}}>Like</Text>
                             </TouchableOpacity>
                         </View>
                         <View>
                             <TouchableOpacity style={styles.reactionContainer}>
-                            <IconsMat name="comment-outline" size={20} style={{marginRight:5}}/>
-                            <Text>comment</Text>
+                            <IconsMat name="comment-outline" size={20} style={{marginRight:5,color:"black"}}/>
+                            <Text style={{color:"black"}}>comment</Text>
                             </TouchableOpacity>
                         </View>
                         <View >
                             <TouchableOpacity style={styles.reactionContainer}>
-                            <IconsAnt name="sharealt" size={20} style={{marginRight:5}}/>
-                            <Text>Share</Text>
+                            <IconsAnt name="sharealt" size={20} style={{marginRight:5,color:"black"}}/>
+                            <Text style={{color:"black"}}>Share</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

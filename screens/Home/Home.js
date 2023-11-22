@@ -32,15 +32,15 @@ const Home = () => {
                 <View style={{ paddingVertical: 10, flexDirection: "row" }}>
                     <View style={styles.liveSection}>
                         <IconsM name="video" size={20} color="red" />
-                        <Text>Live</Text>
+                        <Text style={{color:"black"}}>Live</Text>
                     </View>
                     <View style={styles.liveSection}>
                         <IconsM name="image-multiple" size={20} color="green" />
-                        <Text>Photo</Text>
+                        <Text style={{color:"black"}}>Photo</Text>
                     </View>
                     <View style={styles.liveSection}>
                         <IconsM name="video-plus" size={20} color="purple" />
-                        <Text>Live</Text>
+                        <Text style={{color:"black"}}>Live</Text>
                     </View>
                 </View>
                 <View style={{ height: 10, backgroundColor: "#c1c3c7" }} />
@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
     liveSection: {
         flexDirection: "row",
         justifyContent: "center",
+        alignItems:"center",
         paddingHorizontal: 20,
         width: "33%",
         borderRightColor: "gray",
