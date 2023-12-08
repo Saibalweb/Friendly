@@ -4,7 +4,7 @@ const Post =()=>{
     return(
         <View>
         <PostItem/>
-        <PostItem/>
+        <PostItem video={'true'}/>
         <PostItem/>
         </View>
         

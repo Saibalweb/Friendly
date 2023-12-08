@@ -2,7 +2,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./screens/Home/Home";
 import Notification from "./screens/Notification/Notification";
-import Watch from "./screens/Watch";
+import Watch from "./screens/Watch/Watch";
 import Menu from "./screens/Menu/Menu";
 import Group from "./screens/Group";
 import IconsM from "react-native-vector-icons/MaterialCommunityIcons";

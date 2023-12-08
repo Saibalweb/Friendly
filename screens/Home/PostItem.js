@@ -1,81 +1,102 @@
 import { useState } from "react";
-import { View,Text,StyleSheet,Image,TouchableOpacity, Pressable } from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable } from "react-native";
+import Watch from "../Watch/Watch";
 import profileImg from "../../assets/profile.png";
 import PostImg from "../../assets/Post.jpg";
 import IconsI from "react-native-vector-icons/Ionicons";
 import IconsAnt from "react-native-vector-icons/AntDesign";
 import IconsMat from "react-native-vector-icons/MaterialCommunityIcons";
-const PostItem =()=>{
-    const [star,setStar]= useState(false);
-    const [isLike,setIsLike]=useState(false);
-    const starHandler =()=>{
-        setStar(prevState=>!prevState);
+const PostItem = ({video}) => {
+    const [star, setStar] = useState(false);
+    const [isLike, setIsLike] = useState(false);
+    const [showReaction, setShowReaction] = useState(false);
+    const starHandler = () => {
+        setStar(prevState => !prevState);
     }
-    const addLikeHandler =()=>{
-        setIsLike(prevState=>!prevState);
+    const addLikeHandler = () => {
+        setIsLike(prevState => !prevState);
     }
-    return(
-        <View style={{paddingVertical:10}}>
-            <View style={{paddingHorizontal:5,marginBottom:10,flexDirection:"row",justifyContent:"space-between"}}>
-                <View style={{flexDirection:"row"}}>
+    const showReactionHandler = () => {
+        setShowReaction(true);
+    }
+    return (
+        <View style={{ paddingVertical: 10 }}>
+            <View style={{ paddingHorizontal: 5, marginBottom: 10, flexDirection: "row", justifyContent: "space-between" }}>
+                <View style={{ flexDirection: "row" }}>
                     <TouchableOpacity>
-                    <Image source={profileImg} style={styles.profileImg} />
+                        <Image source={profileImg} style={styles.profileImg} />
                     </TouchableOpacity>
-                    <View style={{justifyContent:"center"}}>
+                    <View style={{ justifyContent: "center" }}>
                         <TouchableOpacity>
-                        <Text style={{color:"black",fontWeight:"bold"}}>Saibal Kole</Text>
+                            <Text style={{ color: "black", fontWeight: "bold" }}>Saibal Kole</Text>
                         </TouchableOpacity>
-                        <View style={{flexDirection:"row",alignItems:"center"}}>
-                            <Text>2h </Text>
-                            <IconsI name="earth"/>
+                        <View style={{ flexDirection: "row", alignItems: "center" }}>
+                            <Text style={{color:'black'}}>2h </Text>
+                            <IconsI name="earth" color={'black'} />
                         </View>
                     </View>
                 </View>
-                <View style={{flexDirection:"row",position:"relative",top:7}}>
+                <View style={{ flexDirection: "row", position: "relative", top: 7 }}>
                     <TouchableOpacity onPress={starHandler}>
-                    <IconsAnt name={star ?"star":"staro"} size={17} style={{color:"blue",marginRight:7}}/>
+                        <IconsAnt name={star ? "star" : "staro"} size={17} style={{ color: "blue", marginRight: 7 }} />
                     </TouchableOpacity>
                     <TouchableOpacity>
-                    <IconsMat name="dots-horizontal" size={20}/>
+                        <IconsMat name="dots-horizontal" size={20} />
                     </TouchableOpacity>
                 </View>
             </View>
             <View>
-                <View style={{marginBottom:10}}>
-                    <Text style={{marginLeft:7,color:"black"}}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet beatae in cupiditate laboriosam doloremque quia dolor, officia voluptas laudantium iure!
+                <View style={{ marginBottom: 10 }}>
+                    <Text style={{ marginLeft: 7, color: "black" }}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet beatae in cupiditate laboriosam doloremque quia dolor, officia voluptas laudantium iure!
                     </Text>
-                    <TouchableOpacity style={{marginLeft:7,marginBottom:10}}>
-                        <Text>See more...</Text>
+                    <TouchableOpacity style={{ marginLeft: 7, marginBottom: 10 }}>
+                        <Text style={{color:'black'}}>See more...</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity>
-                    <Image source={PostImg} style={{flex:1,width:"100%",height:250}}/>
-                    {/* <Video style={{flex:1,width:"100%",height:250}} source={{URL:"https://youtu.be/FaSW_O6NLjM?si=OmEV5_QPJbhFDTdT"}}/> */}
-                    </TouchableOpacity>
+                    {video &&<Watch/>}
+                    {!video &&<TouchableOpacity>
+                        <Image source={PostImg} style={{ flex: 1, width: "100%", height: 250 }} />
+                    </TouchableOpacity>}
                 </View>
-                <View style={{paddingHorizontal:7}}>
-                    <View style={{marginBottom:5,flexDirection:"row",alignItems:"center"}}>
-                        <IconsAnt name="like1" size={15} style={{color:"blue",marginRight:4}}/>
-                        {isLike &&<Text style={{color:"black"}}>You and 10 others</Text>}
-                        {!isLike &&<Text style={{color:"black"}}>10 people likes this</Text>}
+                <View style={{ paddingHorizontal: 7 }}>
+                    <View style={{ marginBottom: 5, flexDirection: "row", alignItems: "center" }}>
+                        <IconsMat name="cards-heart" size={20} style={{ color: "red", marginRight: 2 }} />
+                        <IconsAnt name="like1" size={15} style={{ color: "blue", marginRight: 2 }} />
+                        <IconsMat name="emoticon-happy" size={20} style={{ color: "#a39224", marginRight: 2 }} />
+                        {isLike && <Text style={{ color: "black" }}>You and 10 others</Text>}
+                        {!isLike && <Text style={{ color: "black" }}>10 people reacted this</Text>}
                     </View>
                     <View style={styles.horizontalLine}></View>
-                    <View style={{paddingVertical:5,flexDirection:"row", justifyContent:"space-around"}}>
+                    <View style={{ paddingVertical: 5, flexDirection: "row", justifyContent: "space-around" }}>
                         <View >
-                            <TouchableOpacity style={styles.reactionContainer} onPress={addLikeHandler}>
-                            <IconsAnt name={isLike?"like1":"like2"} size={20} style={isLike?{marginRight:5,color:"blue"}:{marginRight:5,color:"black"}}/>
-                            <Text style={{color:"black"}}>Like</Text>
+                            <TouchableOpacity style={styles.reactionContainer} onPress={addLikeHandler} onLongPress={showReactionHandler}>
+                                <IconsAnt name={isLike ? "like1" : "like2"} size={20} style={isLike ? { marginRight: 5, color: "blue" } : { marginRight: 5, color: "black" }} />
+                                <Text style={{ color: "black" }}>Like</Text>
                             </TouchableOpacity>
+                            {showReaction && <View style={styles.reactionOptionContainer}>
+                                <View style={{ padding: 7, backgroundColor: "#88A9C3", justifyContent: "center", alignItems: "center", borderRadius: 30, marginHorizontal: 3 }}>
+                                    <IconsAnt name="like1" color={"white"} size={25} />
+                                </View>
+                                <View style={{ padding: 7, backgroundColor: "#88A9C3", justifyContent: "center", alignItems: "center", borderRadius: 30, marginHorizontal: 3 }}>
+                                    <IconsAnt name="like1" color={"white"} size={25} />
+                                </View>
+                                <View style={{ padding: 7, backgroundColor: "#88A9C3", justifyContent: "center", alignItems: "center", borderRadius: 30, marginHorizontal: 3 }}>
+                                    <IconsAnt name="like1" color={"white"} size={25} />
+                                </View>
+                                <View style={{ padding: 7, backgroundColor: "#88A9C3", justifyContent: "center", alignItems: "center", borderRadius: 30, marginHorizontal: 3 }}>
+                                    <IconsAnt name="like1" color={"white"} size={25} />
+                                </View>
+                            </View>}
                         </View>
                         <View>
                             <TouchableOpacity style={styles.reactionContainer}>
-                            <IconsMat name="comment-outline" size={20} style={{marginRight:5,color:"black"}}/>
-                            <Text style={{color:"black"}}>comment</Text>
+                                <IconsMat name="comment-outline" size={20} style={{ marginRight: 5, color: "black" }} />
+                                <Text style={{ color: "black" }}>comment</Text>
                             </TouchableOpacity>
                         </View>
                         <View >
                             <TouchableOpacity style={styles.reactionContainer}>
-                            <IconsAnt name="sharealt" size={20} style={{marginRight:5,color:"black"}}/>
-                            <Text style={{color:"black"}}>Share</Text>
+                                <IconsAnt name="sharealt" size={20} style={{ marginRight: 5, color: "black" }} />
+                                <Text style={{ color: "black" }}>Share</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -95,11 +116,22 @@ const styles = StyleSheet.create({
         borderBottomColor: "black",
         borderBottomWidth: StyleSheet.hairlineWidth,
     },
-    reactionContainer:{
-        flexDirection:"row",
-        alignItems:"center",
+    reactionContainer: {
+        flexDirection: "row",
+        alignItems: "center",
         // paddingHorizontal:15,
         // width:"33%"
-    }
+    },
+    reactionOptionContainer: {
+        position: 'absolute',
+        zIndex: 5,
+        backgroundColor: "white",
+        paddingHorizontal: 5,
+        paddingVertical: 5,
+        flexDirection: "row",
+        borderRadius: 15,
+        top: 27,
+        left: -10
+    },
 })
 export default PostItem;

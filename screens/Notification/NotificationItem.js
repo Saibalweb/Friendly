@@ -4,21 +4,23 @@ import IconsEnt from "react-native-vector-icons/Entypo";
 const NotificationItem = () => {
     return (
         <View style={{ flexDirection: "row", flexWrap: "wrap", alignItems: "center", paddingHorizontal: 7, paddingVertical: 20, backgroundColor: "#d4f3fc" }}>
-            <Image source={profileImg} style={styles.profileImg} />
-            <View style={{padding:7,backgroundColor:"blue",borderRadius:30,position:"absolute",left:50,top:60}}>
-                <IconsEnt name="cake" size={18} color="white"/>
-            </View>
+            <TouchableOpacity style={{flexDirection:"row",alignItems:"center"}}>
+                <Image source={profileImg} style={styles.profileImg} />
+                <View style={{ padding: 7, backgroundColor: "blue", borderRadius: 30, position: "absolute", left: 40, top: 70 }}>
+                    <IconsEnt name="cake" size={18} color="white" />
+                </View>
 
-            <View style={{ width: "70%", marginRight: 10 }}>
-                
-                <Text style={{ color: "black", flex: 1 }}>
-                    It's  birthday Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, labore!
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde odit pa.
-                </Text>
-                <Text>1 hour ago</Text>
-            </View>
+                <View style={{ width: "70%", marginRight: 10 }}>
+
+                    <Text style={{ color: "black", flex: 1,fontSize:13 }}>
+                        It's <Text style={{fontWeight:"bold"}}>Saibal Kole</Text>  birthday Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, labore!
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde odit pa.
+                    </Text>
+                    <Text style={{color:"blue"}}>1 hour ago</Text>
+                </View>
+            </TouchableOpacity>
             <TouchableOpacity>
-                <IconsEnt name="dots-three-horizontal" size={20} />
+                <IconsEnt name="dots-three-horizontal" size={20} color="black" />
             </TouchableOpacity>
         </View>
     )
