@@ -6,6 +6,7 @@ const Post =()=>{
         <PostItem/>
         <PostItem video={'true'}/>
         <PostItem/>
+        <PostItem video={'true'}/>
         </View>
         
     )
