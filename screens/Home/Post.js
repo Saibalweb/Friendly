@@ -1,14 +1,17 @@
-import {View,Text} from "react-native";
+import { View, Text,Image } from "react-native";
 import PostItem from "./PostItem";
-const Post =()=>{
-    return(
+import SkeletonLoading from "../../components/SkeletonLoading";
+const Post = () => {
+    return (
+
         <View>
-        <PostItem/>
-        <PostItem video={'true'}/>
-        <PostItem/>
-        <PostItem video={'true'}/>
+            <SkeletonLoading/>
+            <PostItem />
+            <PostItem video={'true'} />
+            <PostItem />
+            <PostItem video={'true'} />
         </View>
-        
+
     )
 }
 export default Post;

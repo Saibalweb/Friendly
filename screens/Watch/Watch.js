@@ -50,7 +50,7 @@ const Watch = () => {
     const showControlHandler = () => {
         setShowControl(prevState => !prevState);
     }
-    console.log(isExpanded);
+    // console.log(isExpanded);
     // automatically hides medial controls after cetain seconds
     useEffect(() => {
         const timeoutId = setTimeout(() => {
