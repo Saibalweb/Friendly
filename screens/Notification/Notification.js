@@ -1,6 +1,7 @@
 import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity,ScrollView} from "react-native";
 import IconsM from "react-native-vector-icons/MaterialCommunityIcons"
 import NotificationItem from "./NotificationItem";
+import NotificationSkeleton from "../../components/NotificationSkeleton";
 const Notification = () => {
     return (
         <SafeAreaView style={{}}>
@@ -16,6 +17,7 @@ const Notification = () => {
                     </TouchableOpacity>
                 </View>
                 <View>
+                    <NotificationSkeleton/>
                     <NotificationItem />
                     <NotificationItem />
                     <NotificationItem />

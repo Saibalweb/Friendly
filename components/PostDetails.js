@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity, Pressable } from "react-native";
-import Watch from "../Watch/Watch";
-import profileImg from "../../assets/profile.png";
-import PostImg from "../../assets/Post.jpg";
+import { View, Text, StyleSheet, Image, TouchableOpacity,Dimensions } from "react-native";
+import { useNavigation,useRoute } from "@react-navigation/native";
+import Watch from "../screens/Watch/Watch";
 import IconsI from "react-native-vector-icons/Ionicons";
 import IconsAnt from "react-native-vector-icons/AntDesign";
 import IconsMat from "react-native-vector-icons/MaterialCommunityIcons";
-const PostItem = ({video}) => {
+
+const {width,height}= Dimensions.get('window');
+
+const PostDetails =({PostImg,profileImg})=>{
     const [star, setStar] = useState(false);
     const [isLike, setIsLike] = useState(false);
     const [showReaction, setShowReaction] = useState(false);
@@ -50,12 +52,12 @@ const PostItem = ({video}) => {
                     <Text style={{ marginLeft: 7, color: "black" }}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet beatae in cupiditate laboriosam doloremque quia dolor, officia voluptas laudantium iure!
                     </Text>
                     <TouchableOpacity style={{ marginLeft: 7, marginBottom: 10 }}>
-                        <Text style={{color:'black'}}>See more...</Text>
+                        <Text style={{color:'blue',fontSize:15}}>See more...</Text>
                     </TouchableOpacity>
-                    {video &&<Watch/>}
-                    {!video &&<TouchableOpacity>
-                        <Image source={PostImg} style={{ flex: 1, width: "100%", height: 250 }} />
-                    </TouchableOpacity>}
+                    {/* {video &&<Watch/>} */}
+                    <TouchableOpacity>
+                        <Image source={PostImg} style={{width, height: 250 }} />
+                    </TouchableOpacity>
                 </View>
                 <View style={{ paddingHorizontal: 7 }}>
                     <View style={{ marginBottom: 5, flexDirection: "row", alignItems: "center" }}>
@@ -134,4 +136,4 @@ const styles = StyleSheet.create({
         left: -10
     },
 })
-export default PostItem;
+export default PostDetails;

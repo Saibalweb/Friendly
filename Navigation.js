@@ -1,11 +1,25 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home/Home";
 import Notification from "./screens/Notification/Notification";
 import Watch from "./screens/Watch/Watch";
 import Menu from "./screens/Menu/Menu";
 import Group from "./screens/Group";
 import IconsM from "react-native-vector-icons/MaterialCommunityIcons";
+import PostContent from "./screens/Home/PostContent";
+
+// Stack Navigations
+const HomeStack = createNativeStackNavigator();
+
+const HomeGroup =()=>{
+    return(
+        <HomeStack.Navigator>
+            <HomeStack.Screen name="Home" component={Home} options={{headerShown:false}}/>
+            <HomeStack.Screen name="PostContent" component={PostContent}/>
+        </HomeStack.Navigator>
+    )
+}
 
 //Tab Bottom
 const Tab =createBottomTabNavigator();
@@ -16,7 +30,7 @@ const TabGroup =()=>{
                 tabBarIcon:({color,focused,size})=>{
                     let iconName;
                     const iconSize = 30;
-                    if(route.name==="Home"){
+                    if(route.name==="HomeGroup"){
                         iconName=focused?"home":"home-outline";
                     }
                     if(route.name==="Watch"){
@@ -40,7 +54,7 @@ const TabGroup =()=>{
                 headerShown:false,
             })}
         >
-            <Tab.Screen name="Home" component={Home} />
+            <Tab.Screen name="HomeGroup" component={HomeGroup} />
             <Tab.Screen name="Watch" component={Watch}/>
             <Tab.Screen name="Group" component={Group}/>
             <Tab.Screen name="Notification" component={Notification}/>
