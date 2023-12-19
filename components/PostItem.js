@@ -44,13 +44,13 @@ const PostItem = ({video,img,profileImg}) => {
                         <IconsAnt name={star ? "star" : "staro"} size={17} style={{ color: "blue", marginRight: 7 }} />
                     </TouchableOpacity>
                     <TouchableOpacity>
-                        <IconsMat name="dots-horizontal" size={20} />
+                        <IconsMat name="dots-horizontal" size={20} color={'black'}/>
                     </TouchableOpacity>
                 </View>
             </View>
             <View>
                 <View style={{ marginBottom: 10 }}>
-                    <Text style={{ marginLeft: 7, color: "black" }}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet beatae in cupiditate laboriosam doloremque quia dolor, officia voluptas laudantium iure!
+                    <Text style={{ marginLeft: 7, color: "black" }}>😁Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet beatae in cupiditate laboriosam doloremque quia dolor, officia voluptas laudantium iure!
                     </Text>
                     <TouchableOpacity style={{ marginLeft: 7, marginBottom: 10 }}>
                         <Text style={{color:'blue',fontSize:15}}>See more...</Text>
