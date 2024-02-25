@@ -1,13 +1,13 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./screens/Home/Home";
-import Notification from "./screens/Notification/Notification";
-import Watch from "./screens/Watch/Watch";
-import Menu from "./screens/Menu/Menu";
-import Group from "./screens/Group";
+import Home from "./src/screens/Home/Home";
+import Notification from "./src/screens/Notification/Notification";
+import Watch from "./src/screens/Watch/Watch";
+import Menu from "./src/screens/Menu/Menu";
+import Group from "./src/screens/Group";
 import IconsM from "react-native-vector-icons/MaterialCommunityIcons";
-import PostContent from "./screens/Home/PostContent";
+import PostContent from "./src/screens/Home/PostContent";
 
 // Stack Navigations
 const HomeStack = createNativeStackNavigator();
