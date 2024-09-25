@@ -5,7 +5,7 @@ import image from "../../assets/Image";
 const Post = () => {
     return (
 
-        <View>
+        <View className="bg-backGround">
             {/* <SkeletonLoading/> */}
             <PostItem img={image.post1} profileImg={image.profile}/>
             <PostItem img={image.post2} profileImg={image.profile2}/>

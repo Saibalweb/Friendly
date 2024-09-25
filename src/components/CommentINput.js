@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, TextInput, Dimensions, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, TextInput, Dimensions, StyleSheet, TouchableOpacity,Image } from 'react-native';
 const { width, height } = Dimensions.get('window');
 import IconsIon from 'react-native-vector-icons/Ionicons'
 const CommentInput = (props) => {
@@ -20,6 +20,7 @@ const CommentInput = (props) => {
     }
     return (
         <View style={{ width,flexDirection:'row',alignItems:'center',paddingHorizontal:7 }}>
+            <Image source={props.profileImg} className="w-[40px] h-[40px] rounded-md"/>
             <TextInput
                 value={comment}
                 autoCapitalize='none'
@@ -29,22 +30,23 @@ const CommentInput = (props) => {
                 onChangeText={commentInputHandler}
             />
             <TouchableOpacity onPress={commentHandler} disabled={commentBtnDisable}>
-                <IconsIon name='send' size={30} color={comment?'blue':'grey'}/>
+                <IconsIon name='send' size={30} color={comment?'#F19955':'grey'}/>
             </TouchableOpacity>
         </View>
     )
 }
 const styles = StyleSheet.create({
     textInput: {
-        flex: 1,
+        // flex: 1,
         marginVertical: 10,
-        marginHorizontal: 7,
+        marginHorizontal: 5,
         padding: 10,
         borderWidth: 1,
         borderColor: 'black',
         borderRadius: 10,
         color:'black',
         fontSize:18,
+        width:'70%'
     },
 })
 export default CommentInput;
