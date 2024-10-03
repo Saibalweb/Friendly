@@ -7,11 +7,11 @@ const Post = () => {
 
         <View className="bg-backGround">
             {/* <SkeletonLoading/> */}
-            <PostItem img={image.post1} profileImg={image.profile}/>
-            <PostItem img={image.post2} profileImg={image.profile2}/>
-            <PostItem video={'true'} profileImg={image.profile3}/>
-            <PostItem img={image.post2} profileImg={image.profile2}/>
-            <PostItem video={'true'} profileImg={image.profile} />
+            <PostItem img={image.post1} profileImg={image.profile} commentInput={true}/>
+            <PostItem img={image.post2} profileImg={image.profile2} commentInput={true}/>
+            <PostItem video={'true'} profileImg={image.profile3} commentInput={true}/>
+            <PostItem img={image.post2} profileImg={image.profile2} commentInput={true}/>
+            <PostItem video={'true'} profileImg={image.profile} commentInput={true}/>
         </View>
 
     )

@@ -5,9 +5,9 @@ const StoryContainerFriendUI = (props) => {
     return (
         <View style={{ marginRight: 7 }} >
             <TouchableOpacity>
-                <View style={styles.storyTopImgBorder}>
+                {/* <View style={styles.storyTopImgBorder}>
                     <Image source={props.img} style={styles.storyTopImg}  resizeMode={"cover"} />
-                </View>
+                </View> */}
                 <View>
                     <Image source={profileImg} style={styles.profileImg} />
                 </View>

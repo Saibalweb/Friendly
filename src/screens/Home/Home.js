@@ -4,6 +4,7 @@ import IconsM from "react-native-vector-icons/MaterialCommunityIcons";
 import profileImg from "../../assets/profile.png";
 import Story from "./Story";
 import Post from "./Post";
+import CreatePost from "../../components/CreatePost";
 
 
 const Home = () => {
@@ -24,28 +25,10 @@ const Home = () => {
                         </View>
                     </View>
                 </View>
-                <View style={styles.profileContent}>
-                    <Image source={profileImg} style={styles.profileImg} />
-                    <Text style={{ color: "black", fontSize: 17 }}>What's on your mind?</Text>
-                </View>
                 <View style={styles.horizontalLine}></View>
-                <View style={{ paddingVertical: 10, flexDirection: "row" }}>
-                    <View style={styles.liveSection}>
-                        <IconsM name="video" size={20} color="red" />
-                        <Text style={{color:"black"}}>Live</Text>
-                    </View>
-                    <View style={styles.liveSection}>
-                        <IconsM name="image-multiple" size={20} color="green" />
-                        <Text style={{color:"black"}}>Photo</Text>
-                    </View>
-                    <View style={styles.liveSection}>
-                        <IconsM name="video-plus" size={20} color="purple" />
-                        <Text style={{color:"black"}}>Live</Text>
-                    </View>
-                </View>
+                <CreatePost/>
                 <View style={{ height: 10, backgroundColor: "#c1c3c7" }} />
                 <Story />
-                <View style={{ height: 10, backgroundColor: "#c1c3c7" }} />
                 <Post/>
             </ScrollView>
         </SafeAreaView>

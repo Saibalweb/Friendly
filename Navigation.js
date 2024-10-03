@@ -4,10 +4,10 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./src/screens/Home/Home";
 import Notification from "./src/screens/Notification/Notification";
 import Watch from "./src/screens/Watch/Watch";
-import Menu from "./src/screens/Menu/Menu";
+import Profile from "./src/screens/Profile/Profile";
 import Group from "./src/screens/Group";
 import IconsM from "react-native-vector-icons/MaterialCommunityIcons";
-import PostContent from "./src/screens/Home/PostContent";
+import PostOpen from "./src/screens/Home/PostOpen";
 
 // Stack Navigations
 const HomeStack = createNativeStackNavigator();
@@ -16,7 +16,7 @@ const HomeGroup =()=>{
     return(
         <HomeStack.Navigator>
             <HomeStack.Screen name="Home" component={Home} options={{headerShown:false}}/>
-            <HomeStack.Screen name="PostContent" component={PostContent}/>
+            <HomeStack.Screen name="PostOpen" component={PostOpen}/>
         </HomeStack.Navigator>
     )
 }
@@ -58,7 +58,7 @@ const TabGroup =()=>{
             <Tab.Screen name="Watch" component={Watch}/>
             <Tab.Screen name="Group" component={Group}/>
             <Tab.Screen name="Notification" component={Notification}/>
-            <Tab.Screen name="Menu" component={Menu}/>
+            <Tab.Screen name="Menu" component={Profile}/>
         </Tab.Navigator>
     )
 }

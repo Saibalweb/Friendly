@@ -28,6 +28,7 @@ const CommentInput = (props) => {
                 placeholder='Write a Comment...'
                 style={styles.textInput}
                 onChangeText={commentInputHandler}
+                multiline={true}
             />
             <TouchableOpacity onPress={commentHandler} disabled={commentBtnDisable}>
                 <IconsIon name='send' size={30} color={comment?'#F19955':'grey'}/>
@@ -46,7 +47,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         color:'black',
         fontSize:18,
-        width:'70%'
+        width:'75%',
     },
 })
 export default CommentInput;
