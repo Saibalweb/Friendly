@@ -13,10 +13,9 @@ const CommentInput = (props) => {
         setCommentBtnDisable(false);
     }
     const commentHandler=()=>{
-        props.onCommentInput(comment);
+        props.onCommentUpload(comment);
         setComment('');
         setCommentBtnDisable(true);
-
     }
     return (
         <View style={{ width,flexDirection:'row',alignItems:'center',paddingHorizontal:7 }}>

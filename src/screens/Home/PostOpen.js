@@ -9,12 +9,15 @@ import {
   ScrollView,
   ActivityIndicator,
   FlatList,
+  Keyboard
 } from 'react-native';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import CommentSection from '../../components/CommentSection';
 import CommentInput from '../../components/CommentINput';
 import PostItem from '../../components/PostItem';
 import image from '../../assets/Image';
+import { post } from '../../utils/requestBuilder';
+import Toast from 'react-native-simple-toast';
 const {width, height} = Dimensions.get('window');
 const array = [
   {comment: 'This is fine', liked: 2, name: 'Ratri Sau'},
@@ -28,31 +31,20 @@ const array = [
 ];
 const PostOpen = () => {
   const route = useRoute();
-  const {params} = route;
-  console.log(route);
   const [comments, setComments] = useState(array);
-  const [star, setStar] = useState(false);
-  const [isLike, setIsLike] = useState(false);
-  const [showReaction, setShowReaction] = useState(false);
-  const starHandler = () => {
-    setStar(prevState => !prevState);
+  const onCommentUpload = async e => {
+      Keyboard.dismiss();
+      const commentUploadUrl = `${process.env.API_URL}/api/v1/comment/upload`
+      const body =JSON.stringify({
+        content:e,
+        postId:"66fda63c73ccd30b46784be4"
+      })
+      const res = await post(commentUploadUrl,body,process.env.Token,'json');
+      Toast.show("You commented on the post!",Toast.LONG);
+      console.log(res?.data?.response);
   };
-  const addLikeHandler = () => {
-    setIsLike(prevState => !prevState);
-  };
-  const showReactionHandler = () => {
-    setShowReaction(true);
-  };
-  const commentInputHandler = e => {
-    setComments(prevState => {
-      let newArr = [...prevState];
-      newArr.push({comment: e, liked: 0, name: 'Saibal Kole'});
-      return newArr;
-    });
-  };
-  console.log(comments);
   return (
-    <ScrollView style={{paddingVertical: 10, marginBottom: 3}}>
+    <ScrollView style={{paddingVertical: 10, marginBottom: 3}} keyboardShouldPersistTaps='always'>
       <PostItem
         img={image.post1}
         profileImg={image.profile}
@@ -69,9 +61,9 @@ const PostOpen = () => {
           />
         );
       })}
-      {/* <ActivityIndicator/> */}
+      {/* <ActivityIndicator size={'large'}/> */}
       <CommentInput
-        onCommentInput={commentInputHandler}
+        onCommentUpload={onCommentUpload}
         profileImg={image.profile}
       />
     </ScrollView>
