@@ -14,7 +14,7 @@ import IconsAnt from 'react-native-vector-icons/AntDesign';
 import IconsMat from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import HorizontalLine from './shared/HorizontalLine';
-import CommentInput from './CommentINput';
+import CommentInput from './comment/CommentINput';
 import PostProfileCard from './Post/PostProfileCard';
 import PostContent from './Post/PostContent';
 import PostLikeSection from './Post/PostLikeSection';

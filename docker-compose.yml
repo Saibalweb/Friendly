@@ -1,0 +1,15 @@
+services:
+  reactnative:
+    build:
+      context: .  # Context is the current directory where the Dockerfile is located
+    image: react-native-cli-app
+    volumes:
+      - .:/app  # Mount the project directory from the host to the container
+    ports:
+      - "8081:8081"  # Expose Metro Bundler port
+    environment:
+      ANDROID_HOME: "/usr/lib/android-sdk"
+    devices:
+      - "/dev/bus/usb:/dev/bus/usb"  # For connecting USB devices like Android phone (for ADB)
+    stdin_open: true  # Keep the STDIN open to attach terminal
+    tty: true  # Allocate a pseudo-TTY

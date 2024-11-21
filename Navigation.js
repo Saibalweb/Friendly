@@ -16,7 +16,7 @@ const HomeGroup =()=>{
     return(
         <HomeStack.Navigator>
             <HomeStack.Screen name="Home" component={Home} options={{headerShown:false}}/>
-            <HomeStack.Screen name="PostOpen" component={PostOpen}/>
+            <HomeStack.Screen name="PostOpen" component={PostOpen} options={{headerShown:false}}/>
         </HomeStack.Navigator>
     )
 }
