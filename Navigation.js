@@ -8,6 +8,7 @@ import Profile from "./src/screens/Profile/Profile";
 import Group from "./src/screens/Group";
 import IconsM from "react-native-vector-icons/MaterialCommunityIcons";
 import PostOpen from "./src/screens/Home/PostOpen";
+import { colors } from "./src/assets/Color";
 
 // Stack Navigations
 const HomeStack = createNativeStackNavigator();
@@ -43,12 +44,12 @@ const TabGroup =()=>{
                         iconName=focused?"bell":"bell-outline";
                     }
                     if(route.name==="Menu"){
-                        iconName="menu";
+                        iconName="account-circle";
                     }
 
                     return<IconsM name={iconName} size={iconSize} color={color}/>
                 },
-                tabBarActiveTintColor:"#4267b2",
+                tabBarActiveTintColor:"#F19955",
                 tabBarInactiveTintColor:"gray",
                 tabBarShowLabel:false,
                 headerShown:false,
@@ -56,7 +57,7 @@ const TabGroup =()=>{
         >
             <Tab.Screen name="HomeGroup" component={HomeGroup} />
             <Tab.Screen name="Watch" component={Watch}/>
-            <Tab.Screen name="Group" component={Group}/>
+            {/* <Tab.Screen name="Group" component={Group}/> */}
             <Tab.Screen name="Notification" component={Notification}/>
             <Tab.Screen name="Menu" component={Profile}/>
         </Tab.Navigator>

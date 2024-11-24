@@ -5,14 +5,17 @@ import {
   Modal,
   TouchableOpacity,
   TextInput,
+  Image,
+  TouchableWithoutFeedback
 } from 'react-native';
 import React from 'react';
 import ModalBackground from './ModalBackground';
 import LargeBtn from './shared/LargeBtn';
 import {colors} from '../assets/Color';
 import ModalBtn from './shared/ModalBtn';
+import image from '../assets/Image';
 
-const EditModal = ({onBackdropPress, onCancelPress, onConfirmPress,editModalVisible,onChangeText,text}) => {
+const EditModal = ({onBackdropPress, onCancelPress, onConfirmPress,editModalVisible,onChangeText,text,img}) => {
   return (
     <ModalBackground onBackdropPress={onBackdropPress} modalVisible={editModalVisible}>
       <View className="bg-white w-5/6 max-h-[75%] rounded-lg p-4">
@@ -22,6 +25,7 @@ const EditModal = ({onBackdropPress, onCancelPress, onConfirmPress,editModalVisi
           onChangeText={(text)=>onChangeText(text)}
           value={text || ""}
         />
+        {img && <Image source={{uri:img}} className="w-[150px] h-[150px] opacity-60 rounded-lg"/>}
         <View className="flex-row mt-3">
           <ModalBtn
             text={'Cancel'}
@@ -32,7 +36,7 @@ const EditModal = ({onBackdropPress, onCancelPress, onConfirmPress,editModalVisi
             onPress={onCancelPress}
           />
           <ModalBtn
-            text={'Edit Com'}
+            text={'Edit'}
             textColor={'white'}
             bgColor={colors.primary}
             icon={'check'}

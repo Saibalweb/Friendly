@@ -127,7 +127,7 @@ const PostOpen = () => {
         />
         <PostItem
           img={image.post1}
-          profileImg={image.profile}
+          profileImg={image.conmmonUriTest}
           commentInput={false}
           route={route.name}
         />

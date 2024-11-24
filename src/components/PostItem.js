@@ -18,33 +18,43 @@ import CommentInput from './comment/CommentINput';
 import PostProfileCard from './Post/PostProfileCard';
 import PostContent from './Post/PostContent';
 import PostLikeSection from './Post/PostLikeSection';
-const PostItem = ({video, img, profileImg,commentInput,route}) => {
+const PostItem = ({
+  video,
+  img,
+  profileImg,
+  commentInput,
+  route,
+  postId,
+  ownerId,
+  content,
+  audience,
+  createdAt,
+  postLikeCount,
+  commentCount,
+  onPressEditMenu
+}) => {
   const {navigate} = useNavigation();
-  const [star, setStar] = useState(false);
-  const [isLike, setIsLike] = useState(false);
-  const [showReaction, setShowReaction] = useState(false);
-  const [disable,setDisable]= useState(route==="PostOpen");
-  const starHandler = () => {
-    setStar(prevState => !prevState);
-  };
-  const addLikeHandler = () => {
-    setIsLike(prevState => !prevState);
-  };
-  const showReactionHandler = () => {
-    setShowReaction(true);
-  };
+  const [disable, setDisable] = useState(route === 'PostOpen');
   const openPostHandler = () => {
     navigate('PostOpen', {img, profileImg});
   };
+  const handleEditMenuPress = ()=>{
+    onPressEditMenu(postId);
+  }
   return (
     <View className="py-2 bg-white mx-3 my-2 rounded-lg">
-      <PostProfileCard profileImg={profileImg}/>
+      <PostProfileCard profileImg={profileImg} audience={audience} createdAt={createdAt} onPressEditMenu={handleEditMenuPress} ownerId={ownerId}/>
       <HorizontalLine color={'#A9ADBC'} />
       <View>
-        <PostContent img={img} onPress={openPostHandler} disable={disable}/>
-        <PostLikeSection/>
+        <PostContent
+          img={img}
+          content={content}
+          onPress={openPostHandler}
+          disable={disable}
+        />
+        <PostLikeSection postLikeCount={postLikeCount} commentCount={commentCount} />
         {/* <HorizontalLine color={'#A9ADBC'}/> */}
-        {commentInput && <CommentInput profileImg={profileImg}/>}
+        {commentInput && <CommentInput profileImg={profileImg} />}
       </View>
     </View>
   );
