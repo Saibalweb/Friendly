@@ -126,6 +126,7 @@ const Profile = () => {
         commentCount={item?.commentCount}
         postId={item?._id}
         ownerId={item?.owner}
+        liked={item?.liked}
         onPressEditMenu={onPressEditMenu}
       />
     );

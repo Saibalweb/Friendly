@@ -31,19 +31,26 @@ const PostItem = ({
   createdAt,
   postLikeCount,
   commentCount,
-  onPressEditMenu
+  liked,
+  onPressEditMenu,
 }) => {
   const {navigate} = useNavigation();
   const [disable, setDisable] = useState(route === 'PostOpen');
   const openPostHandler = () => {
     navigate('PostOpen', {img, profileImg});
   };
-  const handleEditMenuPress = ()=>{
+  const handleEditMenuPress = () => {
     onPressEditMenu(postId);
-  }
+  };
   return (
     <View className="py-2 bg-white mx-3 my-2 rounded-lg">
-      <PostProfileCard profileImg={profileImg} audience={audience} createdAt={createdAt} onPressEditMenu={handleEditMenuPress} ownerId={ownerId}/>
+      <PostProfileCard
+        profileImg={profileImg}
+        audience={audience}
+        createdAt={createdAt}
+        onPressEditMenu={handleEditMenuPress}
+        ownerId={ownerId}
+      />
       <HorizontalLine color={'#A9ADBC'} />
       <View>
         <PostContent
@@ -52,7 +59,12 @@ const PostItem = ({
           onPress={openPostHandler}
           disable={disable}
         />
-        <PostLikeSection postLikeCount={postLikeCount} commentCount={commentCount} />
+        <PostLikeSection
+          postLikeCount={postLikeCount}
+          commentCount={commentCount}
+          postId={postId}
+          liked={liked}
+        />
         {/* <HorizontalLine color={'#A9ADBC'}/> */}
         {commentInput && <CommentInput profileImg={profileImg} />}
       </View>

@@ -126,7 +126,7 @@ const PostOpen = () => {
           text={editCommentText || ""}
         />
         <PostItem
-          img={image.post1}
+          img={image.conmmonUriTest}
           profileImg={image.conmmonUriTest}
           commentInput={false}
           route={route.name}
