@@ -22,6 +22,7 @@ import {deleteReq, get, patch} from '../../utils/requestBuilder';
 import PostEditMenu from '../../components/Post/PostEditMenu';
 import WarningModal from '../../components/WarningModal';
 import EditModal from '../../components/EditModal';
+import { useSelector } from 'react-redux';
 const {height} = Dimensions.get('window');
 const Profile = () => {
   const [postArr, setPostArr] = useState(null);
@@ -35,6 +36,8 @@ const Profile = () => {
   const [editModalVisible, setEditModalVisible] = useState(false);
   const [editPostText,setEditPostText] = useState('');
   const [editPostImg,setEditPostImg] = useState('');
+  const accessToken = useSelector(state=>state.auth.token);
+  const userId = useSelector(state=>state.auth.id);
   useEffect(() => {
     fetchPosts();
   }, [page]);
@@ -46,9 +49,9 @@ const Profile = () => {
   async function fetchPosts() {
     if (page > totalPage && totalPage !== 0) return;
     setLoading(true);
-    const user = '66fd60437913f703a08a2dec';
+    const user = userId;
     const fetchPostUrl = `${process.env.API_URL}/api/v1/post/${user}?page=${page}&size=${pageSize}`;
-    const token = process.env.Token;
+    const token = accessToken;
     const res = await get(fetchPostUrl, token);
     if (res?.statusCode == 200) {
       const resArr = res?.data?.posts;

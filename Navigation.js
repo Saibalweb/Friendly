@@ -9,10 +9,11 @@ import Group from "./src/screens/Group";
 import IconsM from "react-native-vector-icons/MaterialCommunityIcons";
 import PostOpen from "./src/screens/Home/PostOpen";
 import { colors } from "./src/assets/Color";
+import Login from "./src/screens/Auth/Login";
+import Signup from "./src/screens/Auth/Signup";
 
 // Stack Navigations
 const HomeStack = createNativeStackNavigator();
-
 const HomeGroup =()=>{
     return(
         <HomeStack.Navigator>
@@ -21,10 +22,22 @@ const HomeGroup =()=>{
         </HomeStack.Navigator>
     )
 }
-
+const AuthStack = createNativeStackNavigator();
+const Auth =()=>{
+    return(
+        <AuthStack.Navigator screenOptions={()=>(
+            {
+                headerShown:false
+            }
+        )}>
+            <AuthStack.Screen name="Login" component={Login}/>
+            <AuthStack.Screen name="Signup" component={Signup}/>
+        </AuthStack.Navigator>
+    )
+}
 //Tab Bottom
 const Tab =createBottomTabNavigator();
-const TabGroup =()=>{
+const MainApp =()=>{
     return(
         <Tab.Navigator
             screenOptions={({route,navigation})=>({
@@ -71,4 +84,4 @@ const Navigation = ()=>{
         </NavigationContainer>
     )
 }
-export default Navigation;
+export {MainApp,Auth};

@@ -1,4 +1,6 @@
 const image={
+    mainAppIcon:require('./MainAppIcon.png'),
+    splashScreenBg:require('./SplashScreenBg.png'),
     post1:require('./Post-1.jpg'),
     post2:require('./Post.jpg'),
     profile:require('./profile.png'),
