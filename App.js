@@ -55,8 +55,6 @@ const App = () => {
         {isLoading ? <SplashScreen /> : isLoggedIn ? <MainApp /> : <Auth />}
       </NavigationContainer>
     </GestureHandlerRootView>
-    // <SafeAreaView>
-    // </SafeAreaView>
   );
 };
 

@@ -5,6 +5,7 @@ import profileImg from "../../assets/profile.png";
 import Story from "./Story";
 import Post from "./Post";
 import CreatePost from "../../components/CreatePost";
+import { colors } from "../../assets/Color";
 
 
 const Home = () => {
@@ -12,8 +13,8 @@ const Home = () => {
         <SafeAreaView>
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.header}>
-                    <Text style={styles.headerText}>facebook</Text>
-                    <View style={{ flexDirection: "row" }}>
+                    <Text style={styles.headerText}>Friendly</Text>
+                    {/* <View style={{ flexDirection: "row" }}>
                         <View style={styles.headerIconContainer}>
                             <IconsM name="magnify" size={22} style={{ color: "black" }} />
                         </View>
@@ -23,12 +24,12 @@ const Home = () => {
                         <View style={styles.messengerNotification}>
                             <Text style={{ color: "white", fontSize: 15, fontWeight: "900", textAlign: "center" }}>9+</Text>
                         </View>
-                    </View>
+                    </View> */}
                 </View>
                 <View style={styles.horizontalLine}></View>
                 <CreatePost/>
                 <View style={{ height: 10, backgroundColor: "#c1c3c7" }} />
-                <Story />
+                {/* <Story /> */}
                 <Post/>
             </ScrollView>
         </SafeAreaView>
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
     },
     headerText: {
-        color: '#4267b2',
+        color: colors.primary,
         fontWeight: "800",
         fontSize: 30,
     },

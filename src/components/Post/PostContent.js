@@ -5,7 +5,7 @@ const PostContent = ({video, img,content, onPress,disable}) => {
   return (
     <View className="mb-2 p-2">
       <TouchableOpacity className="ml-2" onPress={onPress} disabled={disable || false}>
-        <Text className=" text-secondary text-base" >{content || "There is no content its just static"}</Text>
+        <Text className=" text-secondary text-base" >{content || "Legendary Body builder of India"}</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={{marginLeft: 7, marginBottom: 10}}>
