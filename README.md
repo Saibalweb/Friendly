@@ -1,4 +1,4 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+![Friendly-cover](ReadMe_Assets/Friendly-cover.png)
 
 # Getting Started
 
