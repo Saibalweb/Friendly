@@ -1,4 +1,4 @@
-![Friendly-cover](https://github.com/Saibalweb/Friendly/blob/main/ReadMe_Assets/Friendly-cover.png)
+![Friendly-cover](https://raw.githubusercontent.com/Saibalweb/Friendly/main/ReadMe_Assets/Friendly-cover.png)
 
 ## Built with 
 
